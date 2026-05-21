@@ -1,0 +1,1394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Wagyu King Halal Tsutenkaku Restaurant — Real Japanese Wagyu burger and ramen, prepared the Muslim-friendly way. Steps from Tsutenkaku Tower. Vertically integrated wagyu — our own cattle, raised and prepared by us since 1962. No pork, no alcohol." />
+<title>Wagyu King Halal Tsutenkaku Restaurant 通天閣 和牛 拉面 餐厅 | Halal Wagyu Burger &amp; Ramen, Osaka</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Shippori+Mincho:wght@400;500;600;700&family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    /* Oshiage-LP palette: dark + gold frames + cream text, with crimson reserved for italic emphasis & CTA */
+    --bg: #0a0705;
+    --bg-2: #14100b;
+    --bg-3: #1d1610;
+    --paper: #f4ebd9;
+    --paper-2: #e8dec8;
+    --paper-soft: #c9b994;
+    --ink: #14100b;
+    --ink-soft: #4a3e2a;
+
+    /* gold scale — primary accent for borders, eyebrows, taglines */
+    --gold: #b88a3e;
+    --gold-soft: #d4ab68;
+    --gold-bright: #e8c878;
+
+    /* crimson — used sparingly for italic emphasis & reservation CTAs */
+    --crimson: #8a1818;
+    --crimson-soft: #a82424;
+    --crimson-deep: #5e0e0e;
+    --crimson-italic: #c43838;     /* used for italic <em> highlight words */
+
+    --line: rgba(184,138,62,.22);
+    --line-strong: rgba(184,138,62,.5);
+
+    --serif: "Cormorant Garamond", "Shippori Mincho", serif;
+    --serif-jp: "Shippori Mincho", serif;
+    --sans: "Inter", system-ui, sans-serif;
+  }
+
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;background:var(--bg)}
+  body{
+    background: var(--bg);
+    color: var(--paper);
+    font-family: var(--sans);
+    font-weight: 300;
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  img,video{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+
+  /* atmospheric backdrop */
+  body::before{
+    content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:
+      radial-gradient(ellipse at 50% -10%, rgba(184,138,62,.13), transparent 55%),
+      radial-gradient(ellipse at 90% 110%, rgba(138,24,24,.13), transparent 55%);
+  }
+  body::after{
+    content:"";position:fixed;inset:0;z-index:1;pointer-events:none;mix-blend-mode:overlay;opacity:.45;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .95  0 0 0 0 .87  0 0 0 0 .72  0 0 0 .07 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
+
+  .wrap{max-width:1280px;margin:0 auto;padding:0 32px;position:relative;z-index:2}
+  @media (max-width:720px){ .wrap{padding:0 22px} }
+
+  section{position:relative;z-index:2}
+
+  /* ===== Typography primitives ===== */
+  .eyebrow{
+    font-family:var(--sans);font-weight:400;
+    font-size:11px;letter-spacing:.42em;text-transform:uppercase;
+    color:var(--gold);
+    display:inline-flex;align-items:center;gap:18px;
+  }
+  .eyebrow::before,.eyebrow::after{
+    content:"";width:42px;height:1px;background:var(--gold);opacity:.55;
+  }
+  .eyebrow.solo::before,.eyebrow.solo::after{display:none}
+
+  h1,h2,h3,h4{font-family:var(--serif);font-weight:400;line-height:1.02;letter-spacing:-.015em}
+  h2{font-size:clamp(40px,5.8vw,84px);color:var(--paper)}
+  h2 em{font-style:italic;color:var(--crimson-italic);font-weight:300}
+  h3{font-size:clamp(24px,2.6vw,34px);color:var(--paper);font-weight:500;line-height:1.15}
+
+  .body-prose{font-size:16px;line-height:1.85;color:var(--paper-soft);font-weight:300}
+  .body-prose b{color:var(--paper);font-weight:400}
+  .body-prose + .body-prose{margin-top:18px}
+
+  /* ===== Top fixed nav ===== */
+  nav.top{
+    position:fixed;top:0;left:0;right:0;z-index:80;
+    padding:18px 32px;
+    background: rgba(10,7,5,.55);
+    backdrop-filter: blur(16px) saturate(140%);
+    border-bottom:1px solid rgba(184,138,62,.14);
+    display:flex;align-items:center;justify-content:space-between;gap:20px;
+  }
+  nav.top .brandwrap{display:flex;align-items:center;gap:14px;min-width:0}
+  nav.top .monogram{
+    width:38px;height:38px;border:1px solid var(--gold);
+    display:grid;place-items:center;color:var(--gold-soft);
+    font-family:var(--serif);font-style:italic;font-size:18px;
+    flex-shrink:0;
+  }
+  nav.top .brand{
+    font-family:var(--serif);font-size:15px;color:var(--paper);letter-spacing:.04em;
+    overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0;
+  }
+  nav.top .brand b{color:var(--gold-soft);font-weight:500}
+  nav.top .nav-cta{
+    background:var(--crimson-soft);
+    border:1px solid var(--crimson-soft);color:var(--paper);
+    padding:10px 22px;border-radius:0;
+    font-size:11px;letter-spacing:.32em;text-transform:uppercase;font-weight:500;
+    transition:all .35s ease;flex-shrink:0;
+  }
+  nav.top .nav-cta:hover{background:var(--crimson);border-color:var(--crimson)}
+  @media (max-width:640px){
+    nav.top{padding:14px 20px}
+    nav.top .brand{font-size:12px}
+    nav.top .nav-cta{padding:8px 14px;font-size:10px;letter-spacing:.22em}
+  }
+
+  /* ===== Hero — cinematic ===== */
+  .hero{
+    position:relative;
+    min-height:100vh;
+    padding:140px 0 80px;
+    display:flex;align-items:center;
+    overflow:hidden;
+  }
+  .hero-video{
+    position:absolute;inset:0;width:100%;height:100%;
+    object-fit:cover;z-index:0;
+    filter:brightness(.72) contrast(1.06) saturate(1.05);
+  }
+  .hero-vignette{
+    position:absolute;inset:0;z-index:1;
+    background:
+      linear-gradient(90deg, rgba(10,7,5,.85) 0%, rgba(10,7,5,.55) 40%, rgba(10,7,5,.25) 70%, rgba(10,7,5,.45) 100%),
+      linear-gradient(180deg, rgba(10,7,5,.55) 0%, transparent 25%, transparent 65%, rgba(10,7,5,.9) 100%);
+  }
+  .hero-content{position:relative;z-index:3;width:100%}
+  .hero .top-pills{
+    display:flex;flex-wrap:wrap;gap:12px;margin-bottom:48px;
+  }
+  .pill{
+    display:inline-flex;align-items:center;gap:10px;
+    border:1px solid var(--line-strong);padding:9px 18px;border-radius:0;
+    font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--paper);
+    background:rgba(10,7,5,.4);backdrop-filter:blur(6px);
+  }
+  .pill .dot{width:5px;height:5px;border-radius:50%;background:#7bb86c;box-shadow:0 0 10px #7bb86c}
+  .pill.gold{border-color:var(--gold);color:var(--gold-soft)}
+
+  .hero .micro-label{
+    font-size:11px;letter-spacing:.5em;text-transform:uppercase;
+    color:var(--gold-soft);margin-bottom:36px;
+    display:inline-flex;align-items:center;gap:18px;
+  }
+  .hero .micro-label::before{content:"";width:60px;height:1px;background:var(--gold-soft)}
+
+  .hero h1{
+    font-size:clamp(60px,10vw,148px);
+    font-weight:300;line-height:.94;color:var(--paper);
+    margin-bottom:40px;letter-spacing:-.025em;
+    text-shadow:0 4px 30px rgba(0,0,0,.5);
+  }
+  .hero h1 .line{display:block;overflow:hidden;padding:0 .03em}
+  .hero h1 .line span{display:inline-block;animation:rise 1.2s cubic-bezier(.2,.7,.2,1) both}
+  .hero h1 .line:nth-child(1) span{animation-delay:.15s}
+  .hero h1 .line:nth-child(2) span{animation-delay:.3s}
+  .hero h1 .line:nth-child(3) span{animation-delay:.45s}
+  @keyframes rise{from{transform:translateY(110%);opacity:0}to{transform:translateY(0);opacity:1}}
+  .hero h1 em{font-style:italic;color:var(--crimson-italic);font-weight:300}
+
+  .hero .lede{
+    font-family:var(--serif);font-style:italic;
+    font-size:clamp(19px,1.7vw,24px);color:var(--paper-2);
+    max-width:580px;margin-bottom:56px;line-height:1.45;font-weight:400;
+  }
+
+  .cta-row{display:flex;gap:18px;flex-wrap:wrap;align-items:center}
+  .btn{
+    display:inline-flex;align-items:center;gap:14px;
+    padding:20px 36px;
+    font-size:11px;letter-spacing:.36em;text-transform:uppercase;font-weight:500;
+    transition:all .4s cubic-bezier(.2,.7,.2,1);
+    position:relative;
+  }
+  .btn-primary{background:var(--crimson-soft);color:var(--paper)}
+  .btn-primary:hover{background:var(--crimson);transform:translateY(-3px);box-shadow:0 20px 40px -15px rgba(138,24,24,.7)}
+  .btn-ghost{border:1px solid var(--paper-soft);color:var(--paper);background:rgba(10,7,5,.2);backdrop-filter:blur(4px)}
+  .btn-ghost:hover{border-color:var(--gold);color:var(--gold-soft)}
+  .btn .arrow{transition:transform .35s ease;font-family:var(--serif);font-size:14px}
+  .btn:hover .arrow{transform:translateX(6px)}
+
+  .hero-rating{
+    margin-top:64px;
+    display:flex;align-items:center;gap:24px;flex-wrap:wrap;
+  }
+  .hero-rating .stars{color:var(--gold-bright);letter-spacing:.18em;font-size:16px}
+  .hero-rating .meta{font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--paper-soft)}
+  .hero-rating .meta b{color:var(--paper);font-weight:500}
+
+  .live-strip{
+    margin-top:28px;display:inline-flex;align-items:center;gap:20px;flex-wrap:wrap;
+    font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--paper-soft);
+    padding:14px 22px;background:rgba(10,7,5,.5);
+    border:1px solid var(--line);backdrop-filter:blur(8px);
+  }
+  .live-strip .num{color:var(--gold-soft);font-family:var(--serif);font-style:italic;font-size:20px;letter-spacing:0;font-weight:400}
+  .live-strip a{color:var(--gold-bright);text-decoration:underline;text-underline-offset:4px}
+
+  .scroll-hint{
+    position:absolute;bottom:36px;left:50%;transform:translateX(-50%);
+    z-index:4;
+    font-size:10px;letter-spacing:.4em;text-transform:uppercase;color:var(--paper-soft);
+    display:flex;flex-direction:column;align-items:center;gap:14px;
+  }
+  .scroll-hint::after{
+    content:"";width:1px;height:48px;
+    background:linear-gradient(180deg,var(--gold-soft),transparent);
+    animation:scrolldown 2s ease-in-out infinite;
+  }
+  @keyframes scrolldown{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+  @media (max-width:720px){
+    .hero{min-height:auto;padding:120px 0 100px}
+    .scroll-hint{display:none}
+  }
+
+  /* ===== Section base ===== */
+  .sec{padding:160px 0;position:relative}
+  @media (max-width:720px){.sec{padding:100px 0}}
+
+  .section-head{text-align:center;max-width:820px;margin:0 auto 90px}
+  .section-head .eyebrow{margin-bottom:32px}
+  .section-head h2{margin-bottom:0}
+  .section-head .sub{
+    margin-top:30px;color:var(--paper-soft);
+    font-family:var(--serif);font-style:italic;
+    font-size:clamp(18px,1.5vw,22px);line-height:1.55;font-weight:400;
+  }
+
+  /* ===== Signature triptych ===== */
+  .signatures{
+    background:linear-gradient(180deg, transparent, rgba(21,7,7,.6) 30%, rgba(21,7,7,.6) 70%, transparent);
+  }
+  .sig-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:32px;
+  }
+  .sig-card{
+    position:relative;overflow:hidden;
+    background:rgba(244,235,217,.02);
+    border:1px solid var(--line);
+    transition:all .5s ease;
+    display:flex;flex-direction:column;
+  }
+  .sig-card:hover{border-color:var(--gold);transform:translateY(-6px);box-shadow:0 30px 60px -25px rgba(184,138,62,.35)}
+  .sig-card .media{aspect-ratio:4/3;overflow:hidden;position:relative}
+  .sig-card .media img, .sig-card .media video{
+    width:100%;height:100%;object-fit:cover;
+    transition:transform 1.6s cubic-bezier(.2,.7,.2,1);
+  }
+  .sig-card:hover .media img,.sig-card:hover .media video{transform:scale(1.08)}
+  .sig-card .body{padding:32px 28px 36px;flex:1;display:flex;flex-direction:column}
+  .sig-card .tag{
+    align-self:flex-start;
+    padding:5px 12px;
+    background:transparent;border:1px solid var(--gold);color:var(--gold-soft);
+    font-size:10px;letter-spacing:.35em;text-transform:uppercase;font-weight:500;
+    margin-bottom:18px;
+  }
+  .sig-card .tag.filled{background:var(--gold);color:var(--bg);border-color:var(--gold)}
+  .sig-card h3{margin-bottom:14px;font-size:clamp(20px,1.8vw,26px)}
+  .sig-card p{color:var(--paper-soft);font-size:14.5px;line-height:1.7;font-weight:300}
+
+  @media (max-width:960px){
+    .sig-grid{grid-template-columns:1fr;gap:24px}
+    .sig-card .media{aspect-ratio:16/10}
+  }
+
+  .menu-note{text-align:center;margin-top:60px;font-size:11px;letter-spacing:.2em;color:var(--paper-soft);opacity:.7;letter-spacing:.15em}
+
+  /* ===== Full Menu (cream paper) ===== */
+  .menu-section{
+    background:var(--paper);color:var(--ink);
+    position:relative;
+  }
+  .menu-section::before{
+    content:"";position:absolute;inset:0;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .15  0 0 0 0 .1  0 0 0 0 .05  0 0 0 .04 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    pointer-events:none;opacity:.5;
+  }
+  .menu-section > *{position:relative;z-index:1}
+  .menu-section .eyebrow{color:var(--crimson)}
+  .menu-section .eyebrow::before,.menu-section .eyebrow::after{background:var(--crimson);opacity:.6}
+  .menu-section h2{color:var(--ink)}
+  .menu-section h2 em{color:var(--crimson)}
+  .menu-section .section-head .sub{color:var(--ink-soft)}
+
+  .tabs{
+    display:flex;justify-content:center;gap:0;flex-wrap:wrap;
+    margin-bottom:80px;
+    border-bottom:1px solid rgba(20,16,11,.15);
+  }
+  .tab{
+    padding:18px 40px;
+    border:0;
+    font-size:11px;letter-spacing:.4em;text-transform:uppercase;font-weight:500;
+    color:var(--ink-soft);
+    transition:all .3s ease;
+    position:relative;
+  }
+  .tab.active{color:var(--ink)}
+  .tab.active::after{
+    content:"";position:absolute;bottom:-1px;left:0;right:0;height:2px;background:var(--crimson);
+  }
+  .tab:hover:not(.active){color:var(--ink)}
+
+  .menu-list{display:none}
+  .menu-list.active{display:block;animation:fade .6s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+  .menu-row{
+    display:grid;grid-template-columns:220px 1fr;
+    gap:48px;align-items:start;
+    padding:40px 0;
+    border-bottom:1px solid rgba(20,16,11,.1);
+  }
+  .menu-row:last-child{border-bottom:0}
+  .menu-row .thumb{
+    width:220px;aspect-ratio:4/3;overflow:hidden;background:#ddd;
+  }
+  .menu-row .thumb img,.menu-row .thumb video{width:100%;height:100%;object-fit:cover;transition:transform 1s ease}
+  .menu-row:hover .thumb img,.menu-row:hover .thumb video{transform:scale(1.05)}
+  .menu-row .info{padding-top:6px}
+  .menu-row .info .meta{
+    font-size:10px;letter-spacing:.35em;text-transform:uppercase;
+    color:var(--crimson);font-weight:600;margin-bottom:12px;
+  }
+  .menu-row .info h4{
+    font-family:var(--serif);font-size:28px;font-weight:500;color:var(--ink);
+    margin-bottom:10px;letter-spacing:-.005em;line-height:1.15;
+  }
+  .menu-row .info p{color:var(--ink-soft);font-size:15px;line-height:1.7;max-width:620px;font-weight:300}
+  .menu-row .info p b{color:var(--ink);font-weight:500}
+
+  @media (max-width:760px){
+    .menu-row{grid-template-columns:1fr;gap:20px;padding:30px 0}
+    .menu-row .thumb{width:100%;aspect-ratio:16/10}
+    .menu-row .info h4{font-size:22px}
+  }
+
+  .menu-foot{
+    margin-top:64px;padding-top:40px;
+    border-top:1px solid rgba(20,16,11,.15);
+    text-align:center;font-size:12px;color:var(--ink-soft);letter-spacing:.05em;
+  }
+  .menu-foot p{margin-bottom:8px;line-height:1.7}
+  .menu-foot .cta{
+    display:inline-block;margin-top:32px;padding:18px 40px;
+    background:var(--ink);color:var(--paper);
+    font-size:11px;letter-spacing:.36em;text-transform:uppercase;font-weight:500;
+    transition:all .35s ease;
+  }
+  .menu-foot .cta:hover{background:var(--crimson);transform:translateY(-2px)}
+
+  /* ===== Promise (with split-video composition) ===== */
+  .promise{padding:160px 0 140px}
+  .promise-intro{display:grid;grid-template-columns:1fr 1.05fr;gap:90px;align-items:center;margin-bottom:120px}
+  .promise-text .eyebrow{margin-bottom:30px}
+  .promise-text h2{margin-bottom:36px}
+  .promise-feature-img{
+    position:relative;aspect-ratio:4/5;overflow:hidden;
+    border:1px solid var(--gold);
+  }
+  .promise-feature-img::after{
+    content:"";position:absolute;inset:14px;border:1px solid var(--gold-soft);pointer-events:none;
+  }
+  .promise-feature-img img,.promise-feature-img video{width:100%;height:100%;object-fit:cover}
+
+  @media (max-width:960px){
+    .promise-intro{grid-template-columns:1fr;gap:60px}
+  }
+
+  /* Duo tiles — the burger & ramen showcase */
+  .promise-duo-head{
+    text-align:center;margin-bottom:60px;
+  }
+  .promise-duo-head .eyebrow{margin-bottom:22px}
+  .promise-duo-head h3{
+    font-family:var(--serif);font-size:clamp(32px,4vw,52px);font-weight:400;
+    color:var(--paper);line-height:1.05;letter-spacing:-.01em;
+  }
+  .promise-duo-head h3 em{font-style:italic;color:var(--gold-soft);font-weight:300}
+
+  .promise-duo{
+    display:grid;grid-template-columns:1fr 1fr;gap:24px;
+  }
+  .duo-tile{
+    position:relative;aspect-ratio:4/5;overflow:hidden;
+    border:1px solid var(--gold);
+    background:#000;
+    box-shadow:0 30px 80px -30px rgba(184,138,62,.4);
+    transition:all .5s ease;
+  }
+  .duo-tile::before{
+    content:"";position:absolute;inset:12px;border:1px solid rgba(212,171,104,.4);
+    z-index:3;pointer-events:none;
+  }
+  .duo-tile:hover{transform:translateY(-6px);box-shadow:0 40px 90px -25px rgba(184,138,62,.55)}
+  .duo-tile video{
+    width:100%;height:100%;object-fit:cover;
+    transition:transform 2s ease;
+  }
+  .duo-tile:hover video{transform:scale(1.06)}
+  .duo-tile .label{
+    position:absolute;left:0;right:0;bottom:0;
+    padding:48px 40px 44px;
+    background:linear-gradient(180deg,transparent 0%, rgba(10,3,3,.4) 40%, rgba(10,3,3,.95) 100%);
+    z-index:2;
+  }
+  .duo-tile .label .tag{
+    display:inline-block;
+    padding:6px 14px;border:1px solid var(--gold);background:rgba(10,3,3,.5);
+    font-size:10px;letter-spacing:.4em;text-transform:uppercase;color:var(--gold-bright);font-weight:500;
+    margin-bottom:18px;
+  }
+  .duo-tile .label h3{
+    font-family:var(--serif);font-size:clamp(40px,5vw,68px);color:var(--paper);font-weight:400;letter-spacing:-.02em;line-height:1;
+  }
+  .duo-tile .label h3 em{font-style:italic;color:var(--gold-soft);font-weight:300}
+  .duo-tile .label .blurb{
+    margin-top:18px;font-family:var(--serif);font-style:italic;font-size:17px;color:var(--paper-2);max-width:90%;line-height:1.5;
+  }
+  .duo-tile .corner-num{
+    position:absolute;top:32px;left:32px;z-index:3;
+    font-family:var(--serif);font-style:italic;font-weight:300;
+    font-size:54px;color:var(--gold-bright);line-height:1;letter-spacing:.04em;
+    text-shadow:0 4px 20px rgba(0,0,0,.6);
+  }
+  .duo-tile .corner-num small{
+    display:block;font-style:normal;font-size:10px;letter-spacing:.4em;text-transform:uppercase;
+    color:var(--paper-soft);margin-top:8px;font-weight:500;
+  }
+
+  @media (max-width:880px){
+    .promise-duo{grid-template-columns:1fr;gap:20px}
+    .duo-tile{aspect-ratio:4/5}
+    .duo-tile .label{padding:36px 28px 32px}
+    .duo-tile .label h3{font-size:42px}
+    .duo-tile .corner-num{font-size:40px;top:24px;left:24px}
+  }
+
+  /* ===== Marquee strip ===== */
+  .marquee-strip{
+    background:var(--bg-2);
+    padding:36px 0;
+    overflow:hidden;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    position:relative;z-index:2;
+  }
+  .marquee{
+    display:flex;gap:60px;animation:slide 45s linear infinite;
+    white-space:nowrap;
+    font-family:var(--serif);font-style:italic;font-weight:400;
+    font-size:clamp(22px,2.4vw,34px);color:var(--paper);letter-spacing:.02em;
+  }
+  .marquee > *{flex-shrink:0}
+  .marquee .sep{color:var(--gold-soft);font-style:normal}
+  .marquee .name{color:var(--gold-bright)}
+  @keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* ===== Reviews ===== */
+  .reviews{background:var(--bg-2)}
+  .big-rating{text-align:center;margin-bottom:90px}
+  .big-rating .num{
+    font-family:var(--serif);font-style:italic;font-weight:300;
+    font-size:clamp(90px,14vw,180px);color:var(--gold-soft);line-height:1;
+  }
+  .big-rating .num span{font-size:.36em;opacity:.55;font-style:normal}
+  .big-rating .stars-big{color:var(--gold-bright);letter-spacing:.22em;font-size:22px;margin:18px 0}
+  .big-rating .basis{font-size:11px;letter-spacing:.35em;text-transform:uppercase;color:var(--paper-soft)}
+
+  .reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+  .review{
+    padding:44px 36px;
+    border:1px solid var(--line);
+    background:linear-gradient(180deg, rgba(244,235,217,.02), transparent);
+    position:relative;
+    transition:all .5s ease;
+  }
+  .review:hover{border-color:var(--gold);background:rgba(244,235,217,.04)}
+  .review .qmark{
+    position:absolute;top:18px;right:24px;font-family:var(--serif);font-style:italic;
+    font-size:72px;color:var(--gold-soft);line-height:1;opacity:.35;
+  }
+  .review .quote{
+    font-family:var(--serif);font-style:italic;font-weight:400;
+    font-size:clamp(19px,1.5vw,23px);line-height:1.5;color:var(--paper);
+    margin-bottom:32px;
+  }
+  .review .who{display:flex;align-items:center;gap:16px;border-top:1px solid var(--line);padding-top:22px}
+  .review .flag{
+    width:40px;height:26px;background:var(--gold);
+    color:var(--bg);display:flex;align-items:center;justify-content:center;
+    font-size:10px;font-weight:700;letter-spacing:.1em;
+  }
+  .review .who-info{font-size:12px}
+  .review .who-info b{display:block;color:var(--paper);font-weight:500;font-size:13px;margin-bottom:3px;letter-spacing:.04em}
+  .review .who-info span{color:var(--paper-soft);letter-spacing:.08em;font-size:11px}
+
+  @media (max-width:860px){.reviews-grid{grid-template-columns:1fr;gap:24px}}
+
+  /* ===== Roots — Miyazaki ===== */
+  .roots-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:90px;align-items:center}
+  .roots-visual{
+    position:relative;aspect-ratio:5/6;overflow:hidden;
+    border:1px solid var(--gold);
+  }
+  .roots-visual::after{
+    content:"";position:absolute;inset:14px;border:1px solid var(--gold-soft);pointer-events:none;z-index:2;
+  }
+  .roots-visual img{width:100%;height:100%;object-fit:cover;filter:contrast(1.05) saturate(.9)}
+  .roots-visual .badge{
+    position:absolute;bottom:28px;left:28px;
+    background:var(--bg);color:var(--gold-bright);
+    padding:16px 24px;
+    font-family:var(--serif);font-style:italic;font-size:19px;font-weight:400;
+    border:1px solid var(--gold);
+  }
+  .roots-visual .badge b{display:block;font-style:normal;font-size:10px;letter-spacing:.4em;color:var(--paper);text-transform:uppercase;margin-bottom:6px;font-weight:500}
+
+  .stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin:52px 0}
+  .stat{padding:28px 0;border-top:1px solid var(--gold)}
+  .stat .v{
+    font-family:var(--serif);font-style:italic;font-weight:400;
+    font-size:46px;color:var(--gold-bright);line-height:1;margin-bottom:10px;
+  }
+  .stat .l{font-size:10px;letter-spacing:.36em;text-transform:uppercase;color:var(--paper-soft);font-weight:500}
+  .stat .l + p{margin-top:14px;font-size:13px;color:var(--paper-soft);line-height:1.6;font-weight:300}
+
+  blockquote.pull{
+    font-family:var(--serif);font-style:italic;font-weight:400;
+    font-size:clamp(22px,2vw,30px);line-height:1.4;color:var(--paper);
+    margin:36px 0;padding:0 0 0 28px;border-left:2px solid var(--gold);
+  }
+  blockquote.pull b{font-style:normal;color:var(--gold-soft);font-weight:500}
+
+  @media (max-width:880px){.roots-grid{grid-template-columns:1fr;gap:60px}.stats-row{grid-template-columns:1fr}}
+
+  /* ===== Halal section ===== */
+  .halal{background:var(--paper);color:var(--ink);padding:160px 0}
+  .halal::before{
+    content:"";position:absolute;inset:0;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .15  0 0 0 0 .1  0 0 0 0 .05  0 0 0 .04 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    pointer-events:none;opacity:.5;
+  }
+  .halal > *{position:relative;z-index:1}
+  .halal .eyebrow{color:var(--crimson)}
+  .halal .eyebrow::before,.halal .eyebrow::after{background:var(--crimson);opacity:.6}
+  .halal h2{color:var(--ink)}
+  .halal h2 em{color:var(--crimson)}
+  .halal .section-head .sub{color:var(--ink-soft)}
+
+  .three{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:70px}
+  .three .card{
+    padding:48px 36px;
+    border:1px solid rgba(20,16,11,.15);
+    text-align:left;
+    background:rgba(255,255,255,.4);
+    transition:all .45s ease;
+  }
+  .three .card:hover{background:var(--ink);color:var(--paper);border-color:var(--ink);transform:translateY(-4px)}
+  .three .card:hover .icon{color:var(--gold-bright)}
+  .three .card:hover h4{color:var(--paper)}
+  .three .card .icon{
+    font-family:var(--serif);font-style:italic;font-weight:400;
+    font-size:54px;
+    color:var(--crimson);margin-bottom:22px;line-height:1;
+    transition:color .45s ease;
+  }
+  .three .card h4{
+    font-family:var(--serif);font-size:26px;font-weight:500;color:var(--ink);
+    margin-bottom:14px;transition:color .45s ease;letter-spacing:-.005em;
+  }
+  .three .card p{font-size:14.5px;line-height:1.7;font-weight:300}
+
+  .halal-detail{
+    margin-top:72px;padding:56px;background:rgba(20,16,11,.04);
+    border-left:3px solid var(--crimson);
+  }
+  .halal-detail h4{
+    font-family:var(--serif);font-size:24px;color:var(--ink);margin-bottom:22px;font-weight:500;
+  }
+  .halal-detail p{color:var(--ink-soft);font-size:14.5px;line-height:1.8;margin-bottom:14px;font-weight:300}
+  .halal-detail p b{color:var(--ink);font-weight:500}
+  .halal-detail p:last-child{margin-bottom:0;font-style:italic;font-size:13px;opacity:.85}
+
+  @media (max-width:880px){.three{grid-template-columns:1fr}.halal-detail{padding:36px}}
+
+  /* ===== Numbers ===== */
+  .numbers .num-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  }
+  .num-cell{
+    padding:56px 32px;text-align:center;
+    border-right:1px solid var(--line);
+  }
+  .num-cell:last-child{border-right:0}
+  .num-cell .v{
+    font-family:var(--serif);font-style:italic;font-weight:400;
+    font-size:clamp(46px,5.5vw,78px);color:var(--gold-bright);line-height:1;margin-bottom:18px;
+  }
+  .num-cell .l{font-size:10px;letter-spacing:.36em;text-transform:uppercase;color:var(--paper);font-weight:500}
+  .num-cell .d{margin-top:16px;font-size:13px;color:var(--paper-soft);line-height:1.6;font-weight:300}
+
+  @media (max-width:760px){
+    .numbers .num-grid{grid-template-columns:repeat(2,1fr)}
+    .num-cell{border-bottom:1px solid var(--line)}
+    .num-cell:nth-child(odd){border-right:1px solid var(--line)}
+    .num-cell:nth-child(even){border-right:0}
+  }
+
+  /* ===== Find Us ===== */
+  .find{background:var(--bg-2)}
+  .find-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:90px}
+  .find h3{margin-bottom:16px;font-size:22px}
+  .find .info-block{margin-bottom:40px}
+  .find .info-block .label{font-size:10px;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;font-weight:500}
+  .find .info-block p,.find .info-block li{color:var(--paper-soft);font-size:15px;line-height:1.7;font-weight:300}
+  .find .info-block p b,.find .info-block li b{color:var(--paper);font-weight:500}
+  .find ul{list-style:none}
+  .find ul li{
+    padding:12px 0;border-bottom:1px dashed var(--line);
+    display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
+  }
+  .find ul li span{color:var(--paper-soft);font-size:13px}
+  .find .phone-call{
+    display:inline-block;font-family:var(--serif);font-style:italic;font-weight:400;
+    font-size:30px;color:var(--gold-bright);letter-spacing:.04em;
+    border-bottom:1px solid var(--gold);padding-bottom:8px;
+  }
+
+  @media (max-width:880px){.find-grid{grid-template-columns:1fr;gap:50px}}
+
+  .map-wrap{
+    margin-top:72px;
+    aspect-ratio:21/9;
+    border:1px solid var(--gold);
+    overflow:hidden;
+  }
+  .map-wrap iframe{width:100%;height:100%;border:0;filter:invert(.92) hue-rotate(180deg) saturate(.6)}
+  @media (max-width:680px){.map-wrap{aspect-ratio:4/3}}
+
+  /* ===== FAQ ===== */
+  .faq{
+    background:
+      radial-gradient(ellipse at 50% 0%, rgba(184,138,62,.10), transparent 55%),
+      linear-gradient(180deg, var(--bg-2) 0%, var(--bg-3) 100%);
+    position:relative;
+  }
+  .faq::before{
+    content:"";position:absolute;left:50%;top:0;transform:translateX(-50%);
+    width:80%;max-width:1000px;height:1px;
+    background:linear-gradient(90deg, transparent, var(--gold), transparent);
+    opacity:.5;
+  }
+  .faq .faq-list{
+    background:rgba(244,235,217,.025);
+    border:1px solid var(--line);
+    padding:12px 48px;
+  }
+  .faq-list{max-width:920px;margin:0 auto}
+  details{
+    border-bottom:1px solid var(--line);
+    padding:28px 0;
+  }
+  .faq details:last-child{border-bottom:0}
+  details summary{
+    list-style:none;cursor:pointer;
+    display:flex;justify-content:space-between;align-items:center;gap:24px;
+    font-family:var(--serif);font-size:clamp(20px,1.8vw,24px);color:var(--paper);
+    font-weight:500;letter-spacing:-.005em;
+  }
+  details summary::-webkit-details-marker{display:none}
+  details summary::after{
+    content:"+";font-family:var(--serif);font-size:34px;color:var(--gold-bright);
+    transition:transform .35s ease;font-weight:300;
+  }
+  details[open] summary::after{content:"−"}
+  details .ans{margin-top:22px;color:var(--paper-2);font-size:15px;line-height:1.8;font-weight:300}
+  details .ans b{color:var(--paper);font-weight:500}
+  @media (max-width:760px){
+    .faq .faq-list{padding:6px 24px}
+  }
+
+  /* ===== Final CTA ===== */
+  .final{
+    background:linear-gradient(180deg, var(--bg-2), var(--bg) 80%);
+    text-align:center;padding:180px 0;position:relative;overflow:hidden;
+  }
+  .final::before{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(ellipse at center top, rgba(184,138,62,.12), transparent 60%);
+    pointer-events:none;
+  }
+  .final > *{position:relative;z-index:1}
+  .final .urgency{
+    display:inline-block;margin-bottom:48px;
+    padding:12px 28px;
+    border:1px solid var(--crimson);color:var(--gold-bright);
+    font-size:11px;letter-spacing:.36em;text-transform:uppercase;
+  }
+  .final .urgency .pulse{
+    display:inline-block;width:6px;height:6px;background:var(--crimson);border-radius:50%;
+    margin-right:12px;vertical-align:middle;
+    animation:pulse 1.8s ease-in-out infinite;
+  }
+  @keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 var(--crimson)}50%{opacity:.4;box-shadow:0 0 0 8px rgba(110,24,24,0)}}
+
+  .final h2{margin:32px auto 32px;max-width:880px}
+  .final .lede{
+    color:var(--paper-soft);max-width:600px;margin:0 auto 56px;
+    font-family:var(--serif);font-style:italic;font-size:20px;line-height:1.55;font-weight:400;
+  }
+
+  /* Oshiage-style stacked reserve CTA */
+  .reserve-stack{
+    max-width:520px;margin:0 auto;
+    display:flex;flex-direction:column;gap:16px;
+  }
+  .reserve-sub{
+    display:flex;align-items:center;justify-content:center;gap:12px;
+    padding:18px 28px;
+    border:1px solid var(--crimson-soft);
+    background:rgba(168,36,36,.08);
+    color:var(--paper);
+    font-size:13px;letter-spacing:.16em;text-transform:uppercase;font-weight:400;
+    transition:all .35s ease;
+  }
+  .reserve-sub:hover{
+    border-color:var(--gold-soft);
+    background:rgba(217,107,106,.12);
+  }
+  .reserve-sub .dot-r{
+    width:8px;height:8px;border-radius:50%;background:var(--gold);
+    animation:pulse 1.8s ease-in-out infinite;
+  }
+  .reserve-main{
+    display:block;text-align:center;
+    padding:26px 28px;
+    background:var(--crimson-soft);color:var(--paper);
+    font-size:15px;letter-spacing:.34em;text-transform:uppercase;font-weight:500;
+    transition:all .35s ease;
+    border:1px solid var(--crimson-soft);
+  }
+  .reserve-main:hover{
+    background:var(--crimson);border-color:var(--crimson);
+    transform:translateY(-2px);
+    box-shadow:0 20px 50px -15px rgba(138,24,24,.7);
+  }
+  @media (max-width:520px){
+    .reserve-main{font-size:13px;letter-spacing:.22em;padding:22px 20px}
+    .reserve-sub{font-size:11px;letter-spacing:.12em;padding:14px 20px}
+  }
+
+  .contact-row{
+    margin-top:64px;padding-top:44px;border-top:1px solid var(--line);
+    display:flex;justify-content:center;gap:40px;flex-wrap:wrap;font-size:13px;color:var(--paper-soft);font-weight:300;
+  }
+  .contact-row a{color:var(--gold-bright);border-bottom:1px solid var(--gold-bright);padding-bottom:3px;transition:color .3s ease}
+  .contact-row a:hover{color:var(--paper);border-color:var(--paper)}
+
+  /* ===== Footer ===== */
+  footer.foot{
+    padding:64px 0;text-align:center;border-top:1px solid var(--line);
+    font-size:12px;color:var(--paper-soft);letter-spacing:.05em;font-weight:300;
+  }
+  footer.foot .est{font-size:10px;letter-spacing:.4em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:18px}
+  footer.foot .brand{font-family:var(--serif);font-size:20px;color:var(--paper);margin-bottom:18px;display:block;font-weight:500;letter-spacing:-.005em}
+  footer.foot .brand b{color:var(--gold-soft);font-weight:500}
+  footer.foot .brand-jp{font-family:var(--serif-jp);color:var(--paper-soft);font-size:14px;margin-top:4px;display:block;letter-spacing:.08em}
+  footer.foot a{color:var(--gold-soft);text-decoration:underline;text-underline-offset:4px}
+  footer.foot .links{display:flex;justify-content:center;gap:32px;flex-wrap:wrap;margin-top:20px}
+  footer.foot .copy{margin-top:24px;opacity:.7;line-height:1.7}
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <div class="brandwrap">
+    <span class="monogram">W</span>
+    <span class="brand"><b>Wagyu King Halal Tsutenkaku Restaurant</b></span>
+  </div>
+  <a href="#reserve" class="nav-cta">Reserve</a>
+</nav>
+
+<!-- ===== HERO ===== -->
+<header class="hero" id="top">
+  <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="assets/menu-burger-big-cheese.jpg">
+    <source src="assets/promise-burger.mp4" type="video/mp4">
+  </video>
+  <div class="hero-vignette"></div>
+
+  <div class="wrap hero-content">
+    <div class="top-pills">
+      <span class="pill"><span class="dot"></span>Open Now · 11:00 – 23:00</span>
+      <span class="pill gold">Muslim-Friendly · حلال</span>
+      <span class="pill">Steps from Tsutenkaku</span>
+    </div>
+
+    <div class="micro-label">Wagyu King Halal Tsutenkaku Restaurant · Osaka</div>
+
+    <h1>
+      <span class="line"><span>Halal.</span></span>
+      <span class="line"><span>Rare.</span></span>
+      <span class="line"><span>Real <em>Wagyu.</em></span></span>
+    </h1>
+
+    <p class="lede">Real Japanese Wagyu, prepared the Muslim-friendly way — burger and ramen, moments from Tsutenkaku Tower at Wagyu King Halal Tsutenkaku Restaurant.</p>
+
+    <div class="cta-row">
+      <a href="#reserve" class="btn btn-primary">Reserve a Table <span class="arrow">→</span></a>
+      <a href="#menu" class="btn btn-ghost">View Menu <span class="arrow">↓</span></a>
+    </div>
+
+    <div class="hero-rating">
+      <span class="stars">★★★★★</span>
+      <span class="meta"><b>4.8</b> · Google Reviews · Loved by travelers worldwide</span>
+    </div>
+
+    <div class="live-strip">
+      <span><span class="num">8</span> viewing now</span>
+      <span style="opacity:.4">·</span>
+      <span><span class="num">13</span> booked today</span>
+      <span style="opacity:.4">·</span>
+      <a href="#reserve">Reserve →</a>
+    </div>
+  </div>
+
+  <div class="scroll-hint">Scroll</div>
+</header>
+
+<!-- ===== SIGNATURES ===== -->
+<section class="sec signatures" id="menu">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Signature</span>
+      <h2>Two tastes of <em>real Wagyu.</em></h2>
+      <p class="sub">From our wagyu burgers to ramen crowned with seared wagyu — all raised and prepared by us, all pork-free and alcohol-free, served only at Wagyu King Halal Tsutenkaku Restaurant.</p>
+    </div>
+
+    <div class="sig-grid">
+      <article class="sig-card">
+        <div class="media">
+          <img src="assets/menu-burger-big-cheese.jpg" alt="100% Wagyu Big Cheese Burger at Wagyu King Halal Tsutenkaku Restaurant" />
+        </div>
+        <div class="body">
+          <span class="tag filled">Signature</span>
+          <h3>100% Wagyu Big Cheese Burger</h3>
+          <p>Triple wagyu patties, generously topped with rich cheddar. Built on a brioche-style bun, finished by hand at Wagyu King Halal Tsutenkaku Restaurant.</p>
+        </div>
+      </article>
+
+      <article class="sig-card">
+        <div class="media">
+          <img src="assets/menu-ramen-main.jpg" alt="100% Wagyu Ramen at Wagyu King Halal Tsutenkaku Restaurant" />
+        </div>
+        <div class="body">
+          <span class="tag filled">Signature</span>
+          <h3>100% Wagyu Ramen — Platinum / Gold</h3>
+          <p>A wagyu-rich broth topped with a large seared slice of wagyu, served right at your table. Choose miso, soy sauce, or spicy.</p>
+        </div>
+      </article>
+
+      <article class="sig-card">
+        <div class="media">
+          <img src="assets/menu-burger-cheese.jpg" alt="100% Wagyu Cheese Burger at Wagyu King Halal Tsutenkaku Restaurant" />
+        </div>
+        <div class="body">
+          <span class="tag">Classic</span>
+          <h3>100% Wagyu Cheese Burger</h3>
+          <p>Wagyu and cheese — the timeless pair, perfectly balanced. The original, untouched.</p>
+        </div>
+      </article>
+    </div>
+
+    <p class="menu-note">※ Photos and footage for reference only. See in-store menu when you visit.</p>
+  </div>
+</section>
+
+<!-- ===== FULL MENU ===== -->
+<section class="sec menu-section" id="full-menu">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Full Menu</span>
+      <h2>Every dish — <em>pork-free, alcohol-free.</em></h2>
+      <p class="sub">Tap a category to explore. Served only at Wagyu King Halal Tsutenkaku Restaurant.</p>
+    </div>
+
+    <div class="tabs">
+      <button class="tab active" data-tab="burger">Burger</button>
+      <button class="tab" data-tab="ramen">Ramen</button>
+    </div>
+
+    <div class="menu-list active" data-list="burger">
+      <div class="menu-row">
+        <div class="thumb">
+          <img src="assets/menu-burger-big-cheese.jpg" alt="100% Wagyu Big Cheese Burger" />
+        </div>
+        <div class="info">
+          <div class="meta">Signature · Triple Patty</div>
+          <h4>100% Japanese Wagyu Big Cheese Burger</h4>
+          <p>Triple wagyu patties, generously topped with rich cheddar. Our boldest burger — built for the wagyu obsessed at Wagyu King Halal Tsutenkaku Restaurant.</p>
+        </div>
+      </div>
+
+      <div class="menu-row">
+        <div class="thumb">
+          <img src="assets/menu-burger-cheese.jpg" alt="100% Wagyu Cheese Burger" />
+        </div>
+        <div class="info">
+          <div class="meta">Classic</div>
+          <h4>100% Japanese Wagyu Cheese Burger</h4>
+          <p>Wagyu and cheese — the timeless pair, perfectly balanced. Single patty, full flavor.</p>
+        </div>
+      </div>
+
+      <div class="menu-row">
+        <div class="thumb">
+          <img src="assets/menu-burger-wagyu.jpg" alt="100% Wagyu Truffle Cheese Burger" />
+        </div>
+        <div class="info">
+          <div class="meta">Premium · Truffle-Scented</div>
+          <h4>100% Japanese Wagyu Truffle Cheese Burger</h4>
+          <p>The pinnacle of our burger line — wagyu and cheddar finished with the aroma of black truffle.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-list" data-list="ramen">
+      <div class="menu-row">
+        <div class="thumb">
+          <img src="assets/menu-ramen-main.jpg" alt="100% Wagyu Ramen — Platinum / Gold" />
+        </div>
+        <div class="info">
+          <div class="meta">Signature · Soy Sauce / Miso</div>
+          <h4>100% Japanese Wagyu Ramen — Platinum / Gold</h4>
+          <p>A wagyu-rich broth, crowned with a large slice of seared wagyu — our signature original at Wagyu King Halal Tsutenkaku Restaurant.</p>
+        </div>
+      </div>
+
+      <div class="menu-row">
+        <div class="thumb">
+          <img src="assets/ramen-classic.jpg" alt="Wagyu Ramen — Classic" />
+        </div>
+        <div class="info">
+          <div class="meta">Classic Style</div>
+          <h4>Wagyu Ramen — Classic</h4>
+          <p>Spring onions, bamboo shoots, and a generous wrap of marbled wagyu over springy noodles in a soul-warming wagyu broth.</p>
+        </div>
+      </div>
+
+      <div class="menu-row">
+        <div class="thumb">
+          <img src="assets/ramen-spicy.jpg" alt="Wagyu Ramen — Spicy" />
+        </div>
+        <div class="info">
+          <div class="meta">Spicy</div>
+          <h4>Wagyu Ramen — Spicy</h4>
+          <p>A fiery red broth pooled around tender wagyu and our signature noodles — for those who want their wagyu with heat.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-foot">
+      <p>※ All items above are <b>100% Japanese Wagyu, pork-free and alcohol-free.</b></p>
+      <p>※ Please see the in-store menu when you visit.</p>
+      <a href="#reserve" class="cta">Reserve a Table →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROMISE — split video composition ===== -->
+<section class="sec promise">
+  <div class="wrap">
+
+    <div class="promise-intro">
+      <div class="promise-text">
+        <span class="eyebrow">Our Promise</span>
+        <h2 style="margin-top:30px">From our pasture, <em>to your plate.</em></h2>
+        <p class="body-prose">Since 1962, we've raised our own cattle in Miyazaki and prepared every cut ourselves — here at Wagyu King Halal Tsutenkaku Restaurant in Osaka.</p>
+        <p class="body-prose">Fully vertically integrated, with no middlemen. Most "wagyu" outside Japan isn't really ours. <b style="color:var(--gold-soft)">This is.</b></p>
+        <div style="margin-top:44px"><a href="#full-menu" class="btn btn-ghost" style="border-color:var(--line-strong);background:transparent">See the menu <span class="arrow">↓</span></a></div>
+      </div>
+      <div class="promise-feature-img">
+        <img src="assets/interior-exterior-poster.jpg" alt="Wagyu King Halal Tsutenkaku Restaurant interior" />
+      </div>
+    </div>
+
+    <div class="promise-duo-head">
+      <span class="eyebrow">Two Wagyu Expressions</span>
+      <h3 style="margin-top:22px">Burger <em>and</em> Ramen.<br/>One source, two crafts.</h3>
+    </div>
+
+    <div class="promise-duo">
+      <div class="duo-tile">
+        <video autoplay muted loop playsinline preload="metadata" poster="assets/menu-burger-big-cheese.jpg">
+          <source src="assets/promise-burger.mp4" type="video/mp4">
+        </video>
+        <div class="corner-num">I<small>Burger</small></div>
+        <div class="label">
+          <span class="tag">Muslim-Friendly</span>
+          <h3>Wagyu <em>Burger</em></h3>
+          <p class="blurb">Triple wagyu patties, brioche bun, finished by hand at Wagyu King Halal Tsutenkaku Restaurant.</p>
+        </div>
+      </div>
+      <div class="duo-tile">
+        <video autoplay muted loop playsinline preload="metadata" poster="assets/menu-ramen-main.jpg">
+          <source src="assets/promise-ramen.mp4" type="video/mp4">
+        </video>
+        <div class="corner-num">II<small>Ramen</small></div>
+        <div class="label">
+          <span class="tag">Signature Original</span>
+          <h3>Wagyu <em>Ramen</em></h3>
+          <p class="blurb">A wagyu-rich broth, crowned with a large seared slice of wagyu — miso, soy, or spicy.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== Brand marquee ===== -->
+<div class="marquee-strip">
+  <div class="marquee">
+    <span class="name">Wagyu King Halal Tsutenkaku Restaurant</span>
+    <span class="sep">◆</span>
+    <span>100% Japanese Wagyu</span>
+    <span class="sep">◆</span>
+    <span>Halal · ハラール</span>
+    <span class="sep">◆</span>
+    <span>Burger &amp; Ramen</span>
+    <span class="sep">◆</span>
+    <span>Since 1962</span>
+    <span class="sep">◆</span>
+    <span class="name">Wagyu King Halal Tsutenkaku Restaurant</span>
+    <span class="sep">◆</span>
+    <span>100% Japanese Wagyu</span>
+    <span class="sep">◆</span>
+    <span>Halal · ハラール</span>
+    <span class="sep">◆</span>
+    <span>Burger &amp; Ramen</span>
+    <span class="sep">◆</span>
+    <span>Since 1962</span>
+  </div>
+</div>
+
+<!-- ===== REVIEWS ===== -->
+<section class="sec reviews">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Guest Reviews</span>
+      <h2>Loved by guests <em>from everywhere.</em></h2>
+    </div>
+
+    <div class="big-rating">
+      <div class="num">4.8<span>/5</span></div>
+      <div class="stars-big">★★★★★</div>
+      <div class="basis">Based on 1,000+ Google Reviews</div>
+    </div>
+
+    <div class="reviews-grid">
+      <div class="review">
+        <span class="qmark">"</span>
+        <p class="quote">Best Wagyu burger I've had — anywhere. Wagyu King Halal Tsutenkaku Restaurant is unmissable in Osaka.</p>
+        <div class="who">
+          <span class="flag">UK</span>
+          <div class="who-info"><b>Sarah K.</b><span>London</span></div>
+        </div>
+      </div>
+
+      <div class="review">
+        <span class="qmark">"</span>
+        <p class="quote">Finally, a Muslim-friendly place that actually feels special.</p>
+        <div class="who">
+          <span class="flag">MY</span>
+          <div class="who-info"><b>Ahmad R.</b><span>Kuala Lumpur</span></div>
+        </div>
+      </div>
+
+      <div class="review">
+        <span class="qmark">"</span>
+        <p class="quote">We came for Tsutenkaku, stayed for the ramen.</p>
+        <div class="who">
+          <span class="flag">IN</span>
+          <div class="who-info"><b>Priya P.</b><span>Mumbai</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ROOTS ===== -->
+<section class="sec">
+  <div class="wrap">
+    <div class="roots-grid">
+      <div class="roots-visual">
+        <img src="assets/farm-miyazaki.jpg" alt="Our own wagyu farm in Miyazaki — Wagyu King Halal Tsutenkaku Restaurant" />
+        <div class="badge"><b>Our Farm</b>Miyazaki</div>
+      </div>
+
+      <div>
+        <span class="eyebrow">Our Roots</span>
+        <h2 style="margin-top:30px">One source. <em>Every step our own.</em></h2>
+
+        <div class="stats-row">
+          <div class="stat">
+            <div class="v">Miyazaki</div>
+            <div class="l">Own Farm</div>
+            <p>Raised on our own farm in Miyazaki, the heart of wagyu country.</p>
+          </div>
+          <div class="stat">
+            <div class="v">1 cow</div>
+            <div class="l">From Birth</div>
+            <p>Bloodline-managed, raised one by one — with care.</p>
+          </div>
+          <div class="stat">
+            <div class="v">0</div>
+            <div class="l">Middlemen</div>
+            <p>We control every step, from farm to kitchen.</p>
+          </div>
+        </div>
+
+        <blockquote class="pull">The taste of wagyu, they say, <b>is decided the moment a calf is born.</b></blockquote>
+
+        <p class="body-prose">We raise our own cattle, judge the bloodlines, and prepare every cut with care. Because we control every step — from birth, to butcher, to plate — Wagyu King Halal Tsutenkaku Restaurant serves "real wagyu" with quiet confidence.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HALAL ===== -->
+<section class="halal">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Peace of Mind</span>
+      <h2>Muslim-friendly, <em>in every dish.</em></h2>
+      <p class="sub">Muslim-friendly dining isn't an add-on for us — it's how we cook, every day at Wagyu King Halal Tsutenkaku Restaurant. No pork, no alcohol, anywhere in our kitchen. Welcome, whoever you are.</p>
+    </div>
+
+    <div class="three">
+      <div class="card">
+        <div class="icon">⌀</div>
+        <h4>Alcohol-Free</h4>
+        <p>No alcohol, in any sauce or any glass.</p>
+      </div>
+      <div class="card">
+        <div class="icon">حلال</div>
+        <h4>Muslim-Friendly</h4>
+        <p>Every dish on our menu is pork-free and alcohol-free.</p>
+      </div>
+      <div class="card">
+        <div class="icon">♡</div>
+        <h4>Family Friendly</h4>
+        <p>High chairs, kids' menu, and welcoming hearts.</p>
+      </div>
+    </div>
+
+    <div class="halal-detail">
+      <h4>Our Muslim-friendly practice at Wagyu King Halal Tsutenkaku Restaurant</h4>
+      <p>Since 1962, we've handled wagyu ourselves — from the pasture to the plate. Welcoming Muslim guests is no exception: we built our practice from the source, every step our own.</p>
+      <p>Our kitchen was designed pork-free and alcohol-free from day one. <b>Every item on our menu is prepared the same way.</b> Alcohol is not used, even in sauces. The wagyu we serve is processed at one of the few halal-certified slaughterhouses in Japan.</p>
+      <p>Our staff are trained to answer any question about ingredients or preparation. Whether you're dining with family, observing religious practice, or simply seeking clean and trusted food — we're here for you.</p>
+      <p>*Please note: while we use halal-certified wagyu, Wagyu King Halal Tsutenkaku Restaurant itself is not officially halal-certified. We invite you to ask any questions about our ingredients and kitchen practices.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== NUMBERS ===== -->
+<section class="sec numbers">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Why Here</span>
+      <h2>A story, <em>in four numbers.</em></h2>
+    </div>
+
+    <div class="num-grid">
+      <div class="num-cell">
+        <div class="v">1962</div>
+        <div class="l">Since</div>
+        <div class="d">Vertically integrated Wagyu — every step our own.</div>
+      </div>
+      <div class="num-cell">
+        <div class="v">100%</div>
+        <div class="l">Japanese Wagyu</div>
+        <div class="d">No Australian, no American — only the real thing.</div>
+      </div>
+      <div class="num-cell">
+        <div class="v">حلال</div>
+        <div class="l">Muslim Friendly</div>
+        <div class="d">No pork, no alcohol, in any dish.</div>
+      </div>
+      <div class="num-cell">
+        <div class="v">4.8★</div>
+        <div class="l">Google</div>
+        <div class="d">Loved by 1,000+ travelers from around the world.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FIND US ===== -->
+<section class="sec find" id="visit">
+  <div class="wrap">
+    <div class="section-head" style="text-align:left;max-width:none;margin-bottom:80px">
+      <span class="eyebrow solo">Find Us</span>
+      <h2 style="margin-top:30px">Steps from <em>Tsutenkaku Tower</em></h2>
+    </div>
+
+    <div class="find-grid">
+      <div>
+        <div class="info-block">
+          <div class="label">Shop Name · 店名</div>
+          <p><b>Wagyu King Halal Tsutenkaku Restaurant</b><br/>通天閣 和牛 拉面 餐厅</p>
+        </div>
+
+        <div class="info-block">
+          <div class="label">Address</div>
+          <p>2-1-12 Ebisu-Nishi, Naniwa-ku<br/>Osaka 556-0003, Japan</p>
+          <p style="margin-top:6px;font-size:13px">〒556-0003 大阪府大阪市浪速区恵美須西２丁目１−１２</p>
+          <p style="margin-top:12px;font-size:13px"><b>Wagyu King Halal Tsutenkaku Restaurant</b> · Shinsekai · steps from Tsutenkaku Tower</p>
+        </div>
+
+        <div class="info-block">
+          <div class="label">Stations</div>
+          <ul>
+            <li><b>Ebisucho Station</b><span>Osaka Metro Sakaisuji Line · 5 min walk</span></li>
+            <li><b>Dobutsuen-mae</b><span>Osaka Metro Midosuji / Sakaisuji · 7 min walk</span></li>
+            <li><b>Shin-Imamiya</b><span>JR Loop / Yamatoji · 8 min walk</span></li>
+            <li><b>Ebisucho (Hankai)</b><span>Hankai Tramway · 5 min walk</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div>
+        <div class="info-block">
+          <div class="label">Hours</div>
+          <p><b>11:00 — 23:00</b><br/>Open Daily</p>
+        </div>
+
+        <div class="info-block">
+          <div class="label">Phone</div>
+          <a href="tel:+819031349847" class="phone-call">090-3134-9847</a>
+          <p style="margin-top:10px;font-size:13px">Call Wagyu King Halal Tsutenkaku Restaurant — English-speaking staff available.</p>
+        </div>
+
+        <div class="info-block">
+          <div class="label">Seats</div>
+          <p>16 seats · No private rooms</p>
+        </div>
+
+        <div class="info-block">
+          <div class="label">Halal Info</div>
+          <p><b>Halal · 100% Japanese Wagyu</b><br/>No pork · Muslim-friendly</p>
+        </div>
+
+        <div class="info-block">
+          <div class="label">Good to Know</div>
+          <ul>
+            <li><b>Halal-friendly menu</b><span>Available</span></li>
+            <li><b>Takeout</b><span>Available</span></li>
+            <li><b>Child / Stroller</b><span>Accessible</span></li>
+            <li><b>Free Wi-Fi</b><span>Available</span></li>
+            <li><b>Non-smoking</b><span>Entire premises</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="map-wrap">
+      <iframe
+        src="https://www.google.com/maps?q=%E5%A4%A7%E9%98%AA%E5%BA%9C%E5%A4%A7%E9%98%AA%E5%B8%82%E6%B5%AA%E9%80%9F%E5%8C%BA%E6%81%B5%E7%BE%8E%E9%A0%88%E8%A5%BF2-1-12&output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Wagyu King Halal Tsutenkaku Restaurant — Map">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="sec faq">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">FAQ</span>
+      <h2>Before <em>you visit.</em></h2>
+    </div>
+
+    <div class="faq-list">
+      <details open>
+        <summary>Is everything pork-free and alcohol-free?</summary>
+        <div class="ans">Yes — every dish, every ingredient, every step. At <b>Wagyu King Halal Tsutenkaku Restaurant</b>, we control the practice from the source: cattle in Miyazaki, halal-certified processing, and our pork-free, alcohol-free kitchen in Osaka. <b>Every item on our menu is Muslim-friendly.</b> Alcohol is never used, even in sauces. *Please note: Wagyu King Halal Tsutenkaku Restaurant itself is not officially halal-certified.</div>
+      </details>
+
+      <details>
+        <summary>Do you have English-speaking staff?</summary>
+        <div class="ans">Yes. <b>English-speaking staff are always available</b> at Wagyu King Halal Tsutenkaku Restaurant. Multilingual menus, reservations, and any inquiry — all handled in English. Welcome from everywhere.</div>
+      </details>
+
+      <details>
+        <summary>Do you take reservations?</summary>
+        <div class="ans"><b>Reservations are strongly recommended.</b> Wagyu King Halal Tsutenkaku Restaurant is popular with international guests, and dinner can fill up weeks ahead. Walk-ins often face long waits, or no seats at all. Please reserve ahead to secure your table.</div>
+      </details>
+
+      <details>
+        <summary>How do I get there from Tsutenkaku Tower?</summary>
+        <div class="ans">Wagyu King Halal Tsutenkaku Restaurant is located just west of Tsutenkaku Tower in Shinsekai — about a 3-minute walk. The nearest station is <b>Ebisucho (Osaka Metro Sakaisuji Line)</b>, 5 minutes on foot.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FINAL CTA ===== -->
+<section class="final" id="reserve">
+  <div class="wrap">
+    <div class="urgency"><span class="pulse"></span>Tonight's tables filling fast</div>
+    <span class="eyebrow">Reserve Your Table</span>
+    <h2>A precious table, <em>awaits.</em></h2>
+    <p class="lede">Prepared in limited quantities daily. Our own wagyu, every step. One precious meal at Wagyu King Halal Tsutenkaku Restaurant — steps from Tsutenkaku Tower.</p>
+
+    <div class="reserve-stack">
+      <a href="#" class="reserve-sub">
+        <span class="dot-r"></span>
+        Lunch and dinner seats filling fast
+      </a>
+      <a href="https://www.tablecheck.com/" class="reserve-main">
+        Reserve via TableCheck
+      </a>
+    </div>
+
+    <div class="contact-row">
+      <span><b style="color:var(--paper);font-weight:500">English-speaking staff</b> · Multilingual menus</span>
+      <a href="tel:+819031349847">📞 090-3134-9847</a>
+      <a href="https://www.instagram.com/5w_tokyo_official/">📷 Instagram DM</a>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="est">Est. 1962 · 5th Gen. Butcher</div>
+    <span class="brand"><b>Wagyu King Halal Tsutenkaku Restaurant</b><span class="brand-jp">通天閣 和牛 拉面 餐厅</span></span>
+    <div class="links">
+      <a href="https://www.instagram.com/5w_tokyo_official/">Instagram</a>
+      <a href="https://www.tablecheck.com/">Reservation</a>
+      <a href="tel:+819031349847">090-3134-9847</a>
+    </div>
+    <div class="copy">
+      © 2026 Wagyu King Halal Tsutenkaku Restaurant<br/>
+      〒556-0003 大阪府大阪市浪速区恵美須西２丁目１−１２ · 090-3134-9847
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Menu tabs
+  document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      const target = tab.dataset.tab;
+      document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t === tab));
+      document.querySelectorAll('.menu-list').forEach(l => {
+        l.classList.toggle('active', l.dataset.list === target);
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
